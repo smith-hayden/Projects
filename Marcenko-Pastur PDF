@@ -94,5 +94,5 @@ eMax0,var0=findMaxEval(np.diag(eVal0),q,bWidth=.01) # location of max eigenvalue
 nFacts0=eVal0.shape[0]-np.diag(eVal0)[::-1].searchsorted(eMax0) 
 
 
-print(var0) # where on th y axis eMax0 value lands (probability)
+print(var0) # where on the y axis eMax0 value lands (probability) var0 - 1 = % of variance attributed to signal
 print(nFacts0) # nFacts SHOULD equal the facts input in row 65
