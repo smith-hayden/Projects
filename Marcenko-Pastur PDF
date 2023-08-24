@@ -1,3 +1,5 @@
+# used to measure the signal to noise ratio in financial datasets.
+
 import numpy as np
 
 import pandas as pd
