@@ -59,4 +59,4 @@ print(f"Optimized Sigma: {optimized_sigma}")
 print(f"Optimized RMSE: {result.fun}")
 #print(result)
 
-# can this be discounted to present value and produce target interest rate given observations? Would this be an arbitrage opportunity?
+# can this be discounted to present value and produce target interest rate given observations?
