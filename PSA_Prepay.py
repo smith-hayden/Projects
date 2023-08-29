@@ -33,8 +33,6 @@ for cpr in cprValues:
     mthlyCPR=cpr/12 # sets annual prepay to monthly and divides by 100 to change to %
     prePmt=UPB*mthlyCPR # calcs prepay amount in $
     UPB-=prePmt # updates UPB to UPB after prepayment
-    print(mthlyCPR)
-    print(UPB)
 
     if UPB > 0:
         smm1=prePmt/UPB
