@@ -30,11 +30,18 @@ SMM=[]
 UPB=100000
 
 for cpr in cprValues:
-    mthlyCPR=cpr/12 # sets annual prepay to monthly
+    mthlyCPR=cpr/1200 # sets annual prepay to monthly and divides by 100 to change to %
     prePmt=UPB*mthlyCPR # calcs prepay amount in $
     UPB-=prePmt # updates UPB to UPB after prepayment
-    smm1=prePmt/UPB if UPB > 0 else 0 # if UPB is > 0, write the prePmt % to smm1, else set it to 0
+    print(mthlyCPR)
+    print(UPB)
+
+    if UPB > 0:
+        smm1=prePmt/UPB
+    
+    else: 
+        smm1=0
+     # if UPB is > 0, write the prePmt % to smm1, else set it to 0
     SMM.append(smm1)
     
 print(SMM)
-# work on why CPRs are negative after month 30
