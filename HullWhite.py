@@ -16,12 +16,14 @@ wProcess(price,t,i,vol)
 import scipy as sp
 from sp.optimize import minimize
 
+# observed interest rates
 term_struct=np.array([5.1,5.125,5.001,4.99,5.0,5.1,5.125,5.001,7,5.0,5.1,5.125,6.6,4.99,5.0,5.1,5.125,7.125,4.99,5.0,5.1,5.125,5.001,4.99,5.0,5.1,5.125,5.001,4.99,5.0]) # actual observations 
+
+# simulated interest rates from weiner process
 sim_term_struct=np.array([5.456,5.432,5.123,4.987,5.001,5.456,5.432,5.123,4.987,5.001,5.456,5.432,5.123,4.987,5.001,5.456,5.432,5.123,4.987,5.001,5.1,5.125,5.001,4.99,5.0,5.1,5.125,5.001,4.99,5.0]) # from Hull-White 
 
 def rMse(params):
     theta,sigma=params
-    #print(theta)
     print(sigma)
     predicted=theta+term_struct*sigma
     
@@ -29,10 +31,12 @@ def rMse(params):
     error=sim_term_struct-predicted
     return np.sqrt(np.mean(error**2))
 
-initial_params=[5.5,0.05]
+initial_params=[5.5,0.05] # guess close to data
+
 result=minimize(rMse,initial_params,method='Powell')
 
-optimized_theta, optimized_sigma=result.x
+optimized_theta, optimized_sigma=result.x # returns optimized theta, which is our optimized interest rate at time t
+                                            #returns optimized sigma, which is our optimized volatility 
 
 # Print results
 print(f"Optimized Theta: {optimized_theta}")
