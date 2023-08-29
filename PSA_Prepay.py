@@ -3,9 +3,9 @@
 import numpy as np
 import pandas as pd
 
-basePrepay=0.06 # minimum prepay assumption
-prepayInc=0.002 # prepay increase per month
-maxPrepay=20 # maximum prepay in %
+basePrepay=0.06 # minimum prepay assumption %
+prepayInc=0.002 # prepay increase per month %
+maxPrepay=1.5 # maximum prepay in %
 months=360 # for a 30y conventional fixed
 cprValues=[]
 
@@ -30,7 +30,7 @@ SMM=[]
 UPB=100000
 
 for cpr in cprValues:
-    mthlyCPR=cpr/1200 # sets annual prepay to monthly and divides by 100 to change to %
+    mthlyCPR=cpr/12 # sets annual prepay to monthly and divides by 100 to change to %
     prePmt=UPB*mthlyCPR # calcs prepay amount in $
     UPB-=prePmt # updates UPB to UPB after prepayment
     print(mthlyCPR)
